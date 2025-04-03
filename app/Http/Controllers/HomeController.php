@@ -27,6 +27,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+        // dd(auth()->user('name'));
         return view('home');
     }
     public function changepassword(){
