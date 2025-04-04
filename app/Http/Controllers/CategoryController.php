@@ -6,6 +6,7 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class CategoryController extends Controller
 {
@@ -43,8 +44,8 @@ class CategoryController extends Controller
             'category_name' => $request->category_name,
             'category_slug' => Str::slug($request->category_name),
         ]);
-
-        return redirect()->route('category.index')->with('success', 'Category added successfully.');
+        Alert::success('Success', 'Category added successfully.');
+        return redirect()->route('category.index');
     }
     function updateCategory($id)
     {
@@ -82,7 +83,8 @@ class CategoryController extends Controller
         // $category->delete();
 
         Category::destroy($id);
+        Alert::info('Deleted', 'Category deleted successfully.');
 
-        return redirect()->route('category.index')->with('success', 'Category deleted successfully.');
+        return redirect()->route('category.index');
     }
 }

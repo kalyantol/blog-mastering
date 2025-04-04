@@ -46,6 +46,8 @@
 
 
 @yield('content')
+
+
   
 @auth
   @include('layouts.partial.footer')
@@ -58,6 +60,8 @@
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
+
+
 
 <!-- jQuery -->
 <script src="{{ asset('public/backend') }}/plugins/jquery/jquery.min.js"></script>
