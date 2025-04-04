@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-@include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
-
 
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -58,7 +56,7 @@
                             <form action="{{route('category.delete',$category->id)}}" method="POST" style="display:inline;">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Delete</button>
+                                <button type="submit" class="btn btn-danger delete-btn" id="">Delete</button>
                             </form>
                         </td>
                     </tr>
@@ -82,6 +80,27 @@
   @include('sweetalert::alert')
 
 @endsection
+@push('scripts')
+<script>
+$(document).ready(function() {
+  $('.delete-btn').on('click', function (event) {
+      event.preventDefault();
+      const form = $(this).closest('form');
+      swal({
+          title: 'Are you sure?',
+          text: 'This record and it`s details will be permanantly deleted!',
+          icon: 'warning',
+          buttons: ["Cancel", "Yes!"],
+      }).then(function(value) {
+          if (value) {
+              window.location.href = form.attr('action');
+              form.submit();
+          }
+      });
+  }); 
+});      
+</script>
+@endpush
 <!-- <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">

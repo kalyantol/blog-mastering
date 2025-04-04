@@ -15,6 +15,7 @@ class CategoryController extends Controller
         // $categories = DB::table('categories')->get();
 
         $categories = Category::all();
+       
 
 
         return view('category.index', compact('categories'));
@@ -83,7 +84,7 @@ class CategoryController extends Controller
         // $category->delete();
 
         Category::destroy($id);
-        Alert::info('Deleted', 'Category deleted successfully.');
+        
 
         return redirect()->route('category.index');
     }
