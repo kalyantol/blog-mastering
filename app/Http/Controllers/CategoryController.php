@@ -24,6 +24,14 @@ class CategoryController extends Controller
     {
         return view('category.add');
     }
+    function addsubcategory()
+    {
+        return view('category.addsubcategory');
+    }
+    function addfunction()
+    {
+        return view('category.addfunction');
+    }
     function storeCategory(Request $request)
     {
         $request->validate([

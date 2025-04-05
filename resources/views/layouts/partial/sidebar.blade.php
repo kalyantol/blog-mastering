@@ -62,6 +62,18 @@
                   <p>Add Category</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="{{route('add.subcategory')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add Subcategory</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('add.function')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add Function</p>
+                </a>
+              </li>
             </ul>
           </li>          
           <li class="nav-header">LABELS</li>

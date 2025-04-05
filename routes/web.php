@@ -20,6 +20,8 @@ Route::post('/change/password/page', [App\Http\Controllers\HomeController::class
 Route::middleware(['auth'])->group(function () {
     Route::get('/category/list', [CategoryController::class, 'index'])->name('category.index');
     Route::get('/category/add', [CategoryController::class, 'addcategory'])->name('add.category');
+    Route::get('/category/addsub', [CategoryController::class, 'addsubcategory'])->name('add.subcategory');
+    Route::get('/category/addfunction', [CategoryController::class, 'addfunction'])->name('add.function');
     Route::post('/category/store', [CategoryController::class, 'storeCategory'])->name('category.store');
     Route::get('/category/update/{id}', [CategoryController::class, 'updateCategory'])->name('category.update');
     Route::post('/category/update/{id}', [CategoryController::class, 'updateCategorystore'])->name('category.update');
