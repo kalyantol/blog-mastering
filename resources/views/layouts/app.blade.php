@@ -33,14 +33,14 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
   @stack('styles')
 </head>
-<body class="hold-transition sidebar-mini layout-fixed">
-<div class="wrapper">
+  <body class="hold-transition sidebar-mini layout-fixed">
+    <div class="wrapper">
   
 
   <!-- Preloader -->
-  <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__shake" src="{{ asset('public/backend') }}/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
-  </div>
+        <div class="preloader flex-column justify-content-center align-items-center">
+          <img class="animation__shake" src="{{ asset('public/backend') }}/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+        </div>
 
 @auth
     @include('layouts.partial.topbar')

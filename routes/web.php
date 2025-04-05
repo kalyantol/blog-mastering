@@ -17,11 +17,11 @@ Route::get('/change/password', [App\Http\Controllers\HomeController::class, 'cha
 Route::post('/change/password/page', [App\Http\Controllers\HomeController::class, 'changepasswordpage'])->name('change.password.page')->middleware('verified');
 
 
-
-Route::get('/category/list', [CategoryController::class, 'index'])->name('category.index');
-Route::get('/category/add', [CategoryController::class, 'addcategory'])->name('add.category');
-Route::post('/category/store', [CategoryController::class, 'storeCategory'])->name('category.store');
-
-Route::get('/category/update/{id}', [CategoryController::class, 'updateCategory'])->name('category.update');
-Route::post('/category/update/{id}', [CategoryController::class, 'updateCategorystore'])->name('category.update');
-Route::delete('/category/delete/{id}', [CategoryController::class, 'deleteCategory'])->name('category.delete');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/category/list', [CategoryController::class, 'index'])->name('category.index');
+    Route::get('/category/add', [CategoryController::class, 'addcategory'])->name('add.category');
+    Route::post('/category/store', [CategoryController::class, 'storeCategory'])->name('category.store');
+    Route::get('/category/update/{id}', [CategoryController::class, 'updateCategory'])->name('category.update');
+    Route::post('/category/update/{id}', [CategoryController::class, 'updateCategorystore'])->name('category.update');
+    Route::delete('/category/delete/{id}', [CategoryController::class, 'deleteCategory'])->name('category.delete');
+})->middleware('verified');
